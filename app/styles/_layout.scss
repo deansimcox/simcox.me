@@ -1,18 +1,16 @@
 .page-container {
-	background: rgba(#fff,.6);
-	background: repeating-radial-gradient(rgba(#fff,.55), rgba(#fff,.6) 10px, rgba(#fff,.55) 10px, rgba(#fff,.6) 20px);
+	position: relative;
+	background: rgba(#fff,.3);
 	padding: 1em 4%;
 	overflow: hidden;
-	max-width: 37.5em;
+	max-width: em(800px);
 	margin: 0 auto;
-	box-shadow: 0 0 10px #000;
+	@include shadow-step(#000, .1);
 	border-radius: 10px;
 	text-align: center;
 	transition: 200ms all ease-in-out;
-	@media screen and (max-width: $mobWidth) {
-		background: rgba(#fff,.6);
-	}
 }
+
 .wrapper {
 	max-width: 60em;
 	margin: 0 auto;
@@ -21,10 +19,11 @@
 .dean {
 	margin: 2em auto;
 	max-width: 90%;
+	max-height: 250px;
 	border-radius: 50%;
-	box-shadow: 0 0 100px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.5);
-	border: 4px solid #fff;
-	@media screen and (max-width: $mobWidth) {
+	box-shadow: 0 0 0 5px rgba(#000, 0.2), 0 0 0 10px rgba(#000, 0.15), 0 0 0 15px rgba(#000, 0.1), 0 0 0 20px rgba(#000, 0.05);	
+	@include shadow-step(#000, .1);
+	@include bp(mobile){
 		margin-top: 1.8em;
 	}
 }
@@ -35,7 +34,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 1em;
-	@media screen and (max-width: $mobWidth) {
+	@include bp(mobile){
 		display: block;
 		padding-bottom: 0.3em;
 	}
@@ -80,11 +79,12 @@
 	&:focus {
 		background: #184f89;
 		box-shadow: inset 0 0 0 5px rgba(#000, .3);
+		transform: scale(1.05);
 	}
 	&:active {
 		background: #1d5fa6;
 	}
-	@media screen and (max-width: $mobWidth) {
+	@include bp(mobile){
 		display: block;
 	}
 }

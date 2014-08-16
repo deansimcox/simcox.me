@@ -1,11 +1,47 @@
-
+// include heading font
 @mixin heading-font {
 	font-family: $headingFont;
 	color: $color1;
 }
 
-/* cubic bezier transition */
+// cubic bezier transition
 $cb_trans: cubic-bezier(.26,.85,.46,.99);
+// include transition
 @mixin trans( $time: .6s, $property: all, $easing: $cb_trans){
 	transition: $time $property $easing;
+}
+
+// insert multi step box shadow, pass color and opacity
+@mixin shadow-step($color: #000, $opacity: 0.2) {
+	box-shadow: 0 0 0 5px rgba($color, $opacity), 0 0 0 10px rgba($color, ($opacity*.75)), 0 0 0 15px rgba($color, ($opacity*.5)), 0 0 0 20px rgba($color, ($opacity*.25));
+}
+
+// base font size
+$base-font-size: 16px;
+// return em value based of px value
+@function em($px, $base: $base-font-size) {
+    @return ($px / $base) * 1em;
+}
+
+// breakpoint mixin
+@mixin bp($point) {
+	@if $point == large {
+		@media (min-width: 1200px) { @content; }
+	}
+	@else if $point == desktop {
+		@media (min-width: 992px) { @content; }
+	}
+	@else if $point == tablet {
+		@media (min-width: 768px) { @content; }
+	}
+	@else if $point == mobile {
+		@media (max-width: 768px)  { @content; }
+	}
+}
+
+// detect for css feature (utilizes modernizer classes on html tag)
+@mixin f-detect($feature) {
+	@at-root #{$feature} & {
+		@content;
+	}
 }
