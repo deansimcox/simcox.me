@@ -1,0 +1,13 @@
+{
+  "name": "simcox-me",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.11.0"
+  },
+  "devDependencies": {
+    "trianglify": "~0.1.3",
+    "d3": "~3.4.11",
+    "pleasejs": "*"
+  }
+}

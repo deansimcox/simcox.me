@@ -1,0 +1,11 @@
+
+@mixin heading-font {
+	font-family: $headingFont;
+	color: $color1;
+}
+
+/* cubic bezier transition */
+$cb_trans: cubic-bezier(.26,.85,.46,.99);
+@mixin trans( $time: .6s, $property: all, $easing: $cb_trans){
+	transition: $time $property $easing;
+}
