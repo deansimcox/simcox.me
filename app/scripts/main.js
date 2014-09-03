@@ -21,6 +21,8 @@
 		},
 		randomColor = Please.make_color({
 			format: 'hsv',
+			saturation: 0.8,
+			value: 0.6,
 			colors_returned: 1
 		}),
 		scheme1 = Please.make_scheme(mainColor,{

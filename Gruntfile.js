@@ -314,7 +314,7 @@ module.exports = function (grunt) {
 					cwd: '<%= config.app %>',
 					dest: '<%= config.dist %>',
 					src: [
-						'*.{ico,png,txt}',
+						'*.{ico,png,txt,docx}',
 						'.htaccess',
 						'images/{,*/}*.webp',
 						'{,*/}*.html',
@@ -437,6 +437,11 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('deploy', [
+		'build',
+		'ftp-deploy'
+	]);
+
+	grunt.registerTask('ftp', [
 		'ftp-deploy'
 	]);
 };
